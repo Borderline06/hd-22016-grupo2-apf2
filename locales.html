@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Starbucks - Locales</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
+
+  <!-- Estilos específicos -->
+  <link rel="stylesheet" href="assets/Styles/Locales.css" />
+
+  <!-- Estilos comunes -->
+  <link rel="stylesheet" href="assets/Styles/Styles.css" />
+  <link rel="stylesheet" href="assets/Styles/Bottoms.css" />
+  <link rel="stylesheet" href="assets/Styles/Celular.css" />
+  <link rel="stylesheet" href="assets/Styles/Tablet.css" />
+
+  <!-- Google Fonts -->
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Teachers:wght@500&display=swap');
+  </style>
+
+  <!-- Favicon -->
+  <link rel="icon" href="img/favicon.jpg" type="image/x-icon" />
+</head>
+<body>
+
+  <!-- Header reutilizable -->
+  <div id="header"></div>
+
+  <main>
+    <div class="locator-container">
+      <div class="delivery-options">
+        <div class="delivery-tille">Elige el tipo de entrega</div>
+        <div class="buttons-options">
+          <a class="button-frap-transparent-delivery a-buy-type active">
+            <div class="sprite icon-delivery-white"></div>
+            Delivery
+          </a>
+          <a class="button-frap-transparent-delivery a-buy-type">
+            <div class="sprite icon-pickup"></div>
+            Recojo en tienda
+          </a>
+        </div>
+        <div class="directions-search-form">
+          <form class="form-locator" method="get">
+            <div class="search-location-container">
+              <div class="self-location-container">
+                <a class="a-self-location">
+                  <div class="location-arrow"></div>
+                </a>
+              </div>
+              <div class="input-group-search">
+                <div class="input-group-field">
+                  <input class="search-location pac-target-input" />
+                </div>
+              </div>
+            </div>
+          </form>
+          <a></a>
+        </div>
+      </div>
+      <div class="button-send-container">
+        <a class="locator-direction-link button-frap button-send-direction">Enviar Aquí</a>
+      </div>
+      <div class="locator-map">
+        <div id="map" style="position: relative; overflow: hidden;"></div>
+      </div>
+    </div>
+
+    <!-- Aquí puedes incluir el contenido de Contacto si lo tienes en HTML -->
+    <div id="contacto-container"></div>
+  </main>
+
+  <!-- Botón scroll top -->
+  <div onclick="scrollToTop()" class="btn-scroll-top"></div>
+
+  <!-- Footer reutilizable -->
+  <div id="footer"></div>
+
+  <!-- Scripts JS -->
+  <script src="assets/JavaScript/map.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBXHeoArTzqlEXB6TbzF_KruBba9g5OPpE&callback=iniciarMap" async defer></script>
+  <script src="assets/JavaScript/botones.js"></script>
+  <script src="assets/JavaScript/menu.js"></script>
+  <script src="assets/JavaScript/script.js"></script>
+
+  <!-- Carga dinámica del header, footer y contacto -->
+  <script>
+    fetch('layout/header.html')
+      .then(response => response.text())
+      .then(data => (document.getElementById('header').innerHTML = data));
+
+    fetch('layout/footer.html')
+      .then(response => response.text())
+      .then(data => (document.getElementById('footer').innerHTML = data));
+
+    // Si tienes un fragmento contacto.html para reemplazar el PHP, carga aquí
+    fetch('layout/contacto.html')
+      .then(response => response.text())
+      .then(data => (document.getElementById('contacto-container').innerHTML = data));
+  </script>
+
+  <!-- Bootstrap JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+
+</body>
+</html>
