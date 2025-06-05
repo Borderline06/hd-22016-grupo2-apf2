@@ -1,0 +1,11 @@
+name: Usuario del Push
+
+on:
+  push:
+    branches: [master]
+
+jobs:
+  usuario:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Este push fue realizado"
