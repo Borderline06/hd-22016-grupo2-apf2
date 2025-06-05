@@ -1,0 +1,11 @@
+name: Confirmación de Ejecución
+
+on:
+  push:
+    branches: [master]
+
+jobs:
+  emoji:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "✅ Acción ejecutada correctamente 🎉"
