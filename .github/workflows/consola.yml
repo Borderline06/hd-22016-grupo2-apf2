@@ -8,4 +8,4 @@ jobs:
   mensaje:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "Hola, este es un mensaje de prueba del integrante 1."
+      - run: echo "Hola, este es un mensaje de prueba"
