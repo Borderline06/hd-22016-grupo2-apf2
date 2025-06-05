@@ -1,0 +1,11 @@
+name: Información del Sistema Operativo
+
+on:
+  push:
+    branches: [master]
+
+jobs:
+  sistema:
+    runs-on: ubuntu-latest
+    steps:
+      - run: uname -a
