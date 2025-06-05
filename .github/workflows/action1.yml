@@ -1,0 +1,9 @@
+name: Hello Message
+
+on: [push]
+
+jobs:
+  hello_job:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Hola, este es un mensaje de prueba de Actions."
