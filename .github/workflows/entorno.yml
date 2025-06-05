@@ -1,0 +1,11 @@
+name: Variables de Entorno
+
+on:
+  push:
+    branches: [master]
+
+jobs:
+  entorno:
+    runs-on: ubuntu-latest
+    steps:
+      - run: env
