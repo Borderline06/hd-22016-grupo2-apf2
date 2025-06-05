@@ -1,0 +1,10 @@
+name: Saludo Manual
+
+on:
+  workflow_dispatch:
+
+jobs:
+  saludo:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Hola, este workflow fue ejecutado manualmente."
