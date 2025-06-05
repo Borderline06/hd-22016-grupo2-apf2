@@ -1,0 +1,12 @@
+name: Listar Archivos del Proyecto
+
+on:
+  push:
+    branches: [master]
+
+jobs:
+  listar_archivos:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - run: ls -la
