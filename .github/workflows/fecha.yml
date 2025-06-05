@@ -1,0 +1,11 @@
+name: Show Date and Time
+
+on:
+  push:
+    branches: [master]
+
+jobs:
+  date_job:
+    runs-on: ubuntu-latest
+    steps:
+      - run: date
