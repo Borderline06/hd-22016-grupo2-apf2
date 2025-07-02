@@ -106,7 +106,7 @@ document.addEventListener('DOMContentLoaded', function () {
               </div>
               <div class="description">
                 <p>Llévate a casa la taza o tumbler que siempre quisiste o el café en grano que más te gusta.<br>
-                * Canje válido para modelos de merchandising seleccionados. <br>No válido para artículos de filtrado de café ni tazas de edición Collector.</p>
+                * Canje  válido para modelos de merchandising seleccionados. <br>No válido para artículos de filtrado de café ni tazas de edición Collector.</p>
               </div>
             </div>
           </div>`;

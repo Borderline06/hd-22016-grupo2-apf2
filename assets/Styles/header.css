@@ -130,7 +130,7 @@ input[type=checkbox], input[type=radio] {
     width: 30px;
     height: 100%;
     z-index: 3;
-    cursor: pointer;
+    cursor: pointer ;
     right: 0;
     opacity: 0;
 }
