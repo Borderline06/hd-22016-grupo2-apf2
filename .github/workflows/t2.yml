@@ -1,0 +1,26 @@
+name: Validar HTML, CSS y JS
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  validar_codigo:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Clonar el repositorio
+        uses: actions/checkout@v4
+
+      - name: Instalar herramientas de validación
+        run: |
+          npm install -g htmlhint stylelint eslint
+
+      - name: Validar HTML con htmlhint
+        run: htmlhint '**/*.html' || true
+
+      - name: Validar CSS con stylelint
+        run: stylelint '**/*.css' || true
+
+      - name: Validar JS con eslint
+        run: eslint '**/*.js' || true
