@@ -1,18 +1,13 @@
-name: Check Broken Links
+name: Broken Link Checker
 
-on: [push, pull_request, workflow_dispatch]
+on: [push, pull_request]
 
 jobs:
-  link-check:
+  check-links:
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v3
-
-      - name: Install lychee link checker
-        run: |
-          curl -Ls https://github.com/lycheeverse/lychee/releases/download/v0.13.0/lychee-v0.13.0-x86_64-unknown-linux-gnu.tar.gz | tar xz
-          ./lychee --version
-
-      - name: Check links in all HTML files
-        run: ./lychee "**/*.html" --verbose --no-progress
+      - name: Install link checker
+        run: npm install -g broken-link-checker
+      - name: Run link checker
+        run: blc https://borderline06.github.io/hd-22016-grupo2-apf2/ --filter-level 3 --recursive
