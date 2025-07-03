@@ -1,0 +1,13 @@
+name: Validar HTML
+
+on: [push, pull_request]
+
+jobs:
+  htmlhint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install HTMLHint
+        run: npm install htmlhint --save-dev
+      - name: Run HTMLHint
+        run: npx htmlhint *.html
