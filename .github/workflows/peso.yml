@@ -5,9 +5,28 @@ on: [push, pull_request, workflow_dispatch]
 jobs:
   size-report:
     runs-on: ubuntu-latest
+
     steps:
       - uses: actions/checkout@v3
-      - name: Check file sizes
+
+      - name: Check file sizes and create report
         run: |
-          du -h assets/JavaScript/*
-          du -h assets/Styles/*
+          mkdir -p reports
+          {
+            echo "📦 JavaScript Files in assets/JavaScript:"
+            du -h assets/JavaScript/* 2>/dev/null || echo "No JavaScript files found"
+            echo ""
+            echo "🎨 CSS Files in assets/Styles:"
+            du -h assets/Styles/* 2>/dev/null || echo "No CSS files found"
+            echo ""
+            echo "✅ Report generated on: $(date)"
+          } > reports/size-report.txt
+
+          # Print report to logs for easy viewing
+          cat reports/size-report.txt
+
+      - name: Upload size report as artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: file-size-report
+          path: reports/size-report.txt
