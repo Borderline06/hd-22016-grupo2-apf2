@@ -13,20 +13,20 @@ jobs:
         run: |
           mkdir -p reports
           {
-            echo "📦 JavaScript Files in assets/JavaScript:"
+            echo "JavaScript Files in assets/JavaScript:"
             du -h assets/JavaScript/* 2>/dev/null || echo "No JavaScript files found"
             echo ""
-            echo "🎨 CSS Files in assets/Styles:"
+            echo "CSS Files in assets/Styles:"
             du -h assets/Styles/* 2>/dev/null || echo "No CSS files found"
             echo ""
-            echo "✅ Report generated on: $(date)"
+            echo "Report generated on: $(date)"
           } > reports/size-report.txt
 
           # Print report to logs for easy viewing
           cat reports/size-report.txt
 
       - name: Upload size report as artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: file-size-report
           path: reports/size-report.txt
