@@ -1,4 +1,4 @@
-name: Check File Sizes
+name: Pesos de archivos
 
 on: [push, pull_request, workflow_dispatch]
 
@@ -9,24 +9,24 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Check file sizes and create report
+      - name: Verificar pesos y generar reporte
         run: |
           mkdir -p reports
           {
-            echo "JavaScript Files in assets/JavaScript:"
-            du -h assets/JavaScript/* 2>/dev/null || echo "No JavaScript files found"
+            echo "Peso de archivos JavaScript en assets/JavaScript:"
+            du -h assets/JavaScript/* 2>/dev/null || echo "No hay archivos JavaScript"
             echo ""
-            echo "CSS Files in assets/Styles:"
-            du -h assets/Styles/* 2>/dev/null || echo "No CSS files found"
+            echo "Peso de archivos CSS en assets/Styles:"
+            du -h assets/Styles/* 2>/dev/null || echo "No hay archivos CSS"
             echo ""
-            echo "Report generated on: $(date)"
+            echo "Reporte generado el: $(date)"
           } > reports/size-report.txt
 
-          # Print report to logs for easy viewing
+          # Imprimir el reporte
           cat reports/size-report.txt
 
-      - name: Upload size report as artifact
+      - name: Subir peso del reporte
         uses: actions/upload-artifact@v4
         with:
-          name: file-size-report
+          name: reporte-pesos
           path: reports/size-report.txt
