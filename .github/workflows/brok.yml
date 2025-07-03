@@ -1,0 +1,13 @@
+name: Broken Link Checker
+
+on: [push, pull_request]
+
+jobs:
+  check-links:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install link checker
+        run: npm install -g broken-link-checker
+      - name: Run link checker
+        run: blc http://localhost:3000 --filter-level 3 --recursive
