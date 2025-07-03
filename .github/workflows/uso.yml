@@ -12,7 +12,7 @@ jobs:
       - name: Detectar archivos .js y .css sin uso y guardar reporte
         run: |
           mkdir -p reports
-          report="reports/unused-files.txt"
+          report="reports/sin-uso.txt"
           echo "Reporte de archivos sin uso detectados:" > "$report"
 
           found_unused=false
